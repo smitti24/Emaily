@@ -1,0 +1,9 @@
+const mongoose = require('mongoose');
+const { Schema } = mongoose; // Destructuring
+
+// Describes what every individual record will look like
+const userSchema = new Schema({
+    googleId: String
+})
+
+mongoose.model('users', userSchema);
