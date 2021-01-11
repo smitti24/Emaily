@@ -46,14 +46,14 @@ heroku create
 
 8. Deploy Heroku app
 git remote add heroku https://git.heroku.com/stark-plains-94295.git
-git push heroku master
+git push heroku main
 heroku open
 heroku logs -  to check if there is issues.
 
 9. To re-deploy application:
 git add .
 git commit -m "changed greeting"
-git push heroku master
+git push heroku main
 
 10. Passport.js
 - Automate majority of OAuth flow.
@@ -139,4 +139,9 @@ passport.deserializeUser((id, done) => {
 19. Middleware
 - Small functions that are used to modify requests before they are sent to route handlers. 
 - Pre processing of incomming requests.
-- app.use -> 
+- app.use 
+
+20 Heroku Proxy issues:
+- The browser does inherintly not want to trust requests that come through a proxy.
+- Add configuration to google strategy, to tell it to trust any proxy the browser encounters
+- Google strategy, add procy: true.
