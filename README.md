@@ -145,3 +145,6 @@ passport.deserializeUser((id, done) => {
 - The browser does inherintly not want to trust requests that come through a proxy.
 - Add configuration to google strategy, to tell it to trust any proxy the browser encounters
 - Google strategy, add procy: true.
+
+# Client Side:
+1. npx create-react-app client
