@@ -189,3 +189,22 @@ passport.deserializeUser((id, done) => {
 5. Client Setup/Structure
 - index.js -> Data Layer Control (Redux)
 - App.js -> Rendering Layer Control (React router)
+- npm install redux react-redux react-router-dom --save
+
+6. REDUX setup:
+- State / Data of our application.
+- Redux Store -> Combined Reducer -> authReducer, surveysReducer
+- auth and surveys are combined in the Combined Reducer
+-- Combined Reducer updates the state in our store.
+
+	React Component -> 
+	Calls ACTION CREATOR -> 
+	Returns a ACTION -> 
+	ACTION sent to REDUCER -> 
+	REDUCER updates STORE -> 
+	STORE sends back STATE to COMPONENT
+
+- PROVIDER (Bonding layer between React and Redux) => Component taht makes the store accessible to every component in the app.
+-- Reads changes from the redux store, everytime the store changes, the provider will propogate that change to all its childrens components and will update them all with the new state.
+
+7. 
