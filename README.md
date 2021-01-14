@@ -204,7 +204,7 @@ passport.deserializeUser((id, done) => {
 	REDUCER updates STORE -> 
 	STORE sends back STATE to COMPONENT
 
-- PROVIDER (Bonding layer between React and Redux) => Component taht makes the store accessible to every component in the app.
+- PROVIDER (Bonding layer between React and Redux) => Component that makes the store accessible to every component in the app.
 -- Reads changes from the redux store, everytime the store changes, the provider will propogate that change to all its childrens components and will update them all with the new state.
 
 7. React Router
@@ -213,4 +213,8 @@ passport.deserializeUser((id, done) => {
 * Route -> Rule between a certain route and a set of components that are visible on the screen.
 * Route -> rule or relation between possible address and a component to display on the screen.
 
+8. Addind CSS library:
+* Webpack - Module loader.
+*		  - Takes a group of files and condences it into one file.
+* 		  - Runs everytime the application is changed.
 
