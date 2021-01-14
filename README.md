@@ -147,4 +147,45 @@ passport.deserializeUser((id, done) => {
 - Google strategy, add procy: true.
 
 # Client Side:
-1. npx create-react-app client
+1. npx create-react-app client.
+
+2. Running the client and the server together
+-- Add to server package file: "dev": "concurrently \"npm unserver\" \"npm run client\""
+-- install concurrently: npm install concurrently --save
+
+3. React Proxy:
+-- npm install http-proxy-middleware
+-- In production, the create react app server doesnt exist.
+-- In production the react project is built
+
+4. Async/Await syntax
+	// Write a function to retrieve a blob of json
+	// Make an Ajax request
+	//Use the 'fetch' function/api - > standard library of es15
+
+	// function fetchAlbums() {
+	//     fetch('https://rallycoding.herokuapp.com/api/music_albums')
+	//         .then((res) => {
+	//             res.json(); // Returns another promise
+	//         }).then(json => console.log(json))
+	// }
+
+	async function fetchAlbums() {
+		const res = await fetch('https://rallycoding.herokuapp.com/api/music_albums');
+		const json = res.json(); // Returns another promise
+
+		console.log(json);
+	}
+
+	const fetchAlbums = async () => {
+		const res = await fetch('https://rallycoding.herokuapp.com/api/music_albums');
+		const json = res.json(); // Returns another promise
+
+		console.log(json);
+	}
+
+	fetchAlbums();
+
+5. Client Setup/Structure
+- index.js -> Data Layer Control (Redux)
+- App.js -> Rendering Layer Control (React router)

@@ -29,24 +29,21 @@ passport.use(
         callbackURL: '/auth/google/callback',
         proxy: true
       },
-      (accessToken, refreshToken, profile, done) => {
+      async (accessToken, refreshToken, profile, done) => {
         // Check to see if the user exists in the collection
-        User.findOne({googleId: profile.id})
-          .then((existingUser) => {
-            if(existingUser) {
-              console.info(`User found: ${existingUser}`);
-              done(null, existingUser);
-            } else {
-              // Model Instance (Record inside collection)
-              new User({
-                googleId: profile.id 
-              }).save()
-                .then(user => {
-                  done(null, user);
-                })
-            }
-          })
+        const existingUser = await User.findOne({googleId: profile.id});
 
+        if(existingUser) {
+          console.info(`User found: ${existingUser}`);
+          return done(null, existingUser);
+        }
+
+         // Model Instance (Record inside collection)
+         const user = await new User({
+          googleId: profile.id 
+        }).save()
+
+        done(null, user);
         
       }
     )
