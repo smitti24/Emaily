@@ -207,4 +207,10 @@ passport.deserializeUser((id, done) => {
 - PROVIDER (Bonding layer between React and Redux) => Component taht makes the store accessible to every component in the app.
 -- Reads changes from the redux store, everytime the store changes, the provider will propogate that change to all its childrens components and will update them all with the new state.
 
-7. 
+7. React Router
+* BrowserRouter -> Brains of react router -> Tells react router how to behave
+* BrowserRouter expects to have at most one child component.
+* Route -> Rule between a certain route and a set of components that are visible on the screen.
+* Route -> rule or relation between possible address and a component to display on the screen.
+
+
