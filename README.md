@@ -217,4 +217,33 @@ passport.deserializeUser((id, done) => {
 * Webpack - Module loader.
 *		  - Takes a group of files and condences it into one file.
 * 		  - Runs everytime the application is changed.
+* import 'materialize-css/dist/css/materialize.min.css';
 
+9. Axios and Redux Thunk
+* Axios -> Ajax / api requests to backend api
+* Redux thunk -> makes async action creators behave the way we expect
+- npm install axios redux-thunk --save
+* add it to applyMiddleware.
+** Redux Thunk
+- Allows us to write action creators without returning an action.
+- Funnel thats waiting for actions to be sent into it.
+- Dispatch function -> store -> reducer
+
+10. ConnectHeper
+* Used to give component the ability to call action creators.
+* export default connect(null, actions) (App);
+
+11. '' empty string in Javascript is seen as a falsey value.
+
+12. Connecting a component to redux store
+- Import connection helper 
+- define map to state props function
+- pull off the pieces of state we care for in component
+
+13. React Router:
+- Link Tag -> provided by react router library.
+		   -> Navigate to a different route rendered by React Router.
+- a -> Navigate to a completely different domain/html document
+- import { Link } from 'react-router-dom';
+- Gives access to the <Link> tag.
+- <Link to=""> </Link>
