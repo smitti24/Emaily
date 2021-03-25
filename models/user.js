@@ -3,7 +3,11 @@ const { Schema } = mongoose; // Destructuring
 
 // Describes what every individual record will look like
 const userSchema = new Schema({
-    googleId: String
-})
+    googleId: String,
+    credits: { 
+        type: Number,
+        default: 0
+    }
+});
 
 mongoose.model('users', userSchema);

@@ -44,16 +44,19 @@ install heroku cli
 heroku login
 heroku create
 
+https://sheltered-beyond-81480.herokuapp.com/
+
 8. Deploy Heroku app
 git remote add heroku https://git.heroku.com/stark-plains-94295.git
 git push heroku main
 heroku open
-heroku logs -  to check if there is issues.
+heroku logs - to check if there is issues.
 
 9. To re-deploy application:
 git add .
 git commit -m "changed greeting"
 git push heroku main
+git push https://github.com/smitti24/Emaily.git
 
 10. Passport.js
 - Automate majority of OAuth flow.
@@ -247,3 +250,49 @@ passport.deserializeUser((id, done) => {
 - import { Link } from 'react-router-dom';
 - Gives access to the <Link> tag.
 - <Link to=""> </Link>
+
+
+#Stripe Payments:
+1. Billing Considerations:
+- Never accept raw credit card numbers.
+- never store credit card numbers- Always use an outside payment processor.
+- Users will try fraud.
+- Users will claim charge backs.
+
+2. Install stripe checkout
+* checkout.js
+* stripe checkout react
+-- npm i react-stripe-checkout --save
+
+3. Common modules vs es2015 modules
+* Common modules allows us to 'require' in modules after some code is executed
+* ES2015 modules (import, export default) cannot be executed after some code.
+
+4. Env variables in React-
+* Env variables must start with REACT_APP_ .... 
+* Accessed through process.env
+* .env files in root of application.
+* .env files SHOULD BE checked into source control with exclusion of .env*.local
+* .env.local is loaded for all environments except test.
+
+5. Stripe NPM 
+* npm install stripe --save
+
+6. Body Parser
+NB: When you make a request to a express server, the post does not automatically parse the data.
+-> A module is needed to do this.
+-> body-parser
+-> allows the body property to be available on the req property.
+-> npm i body-parser --save.
+
+7. Route specific middlewares:
+* next = done callback. After middleware completes. Passes request to next middleware.
+* module.exports = (req, res, next) => { }
+* Used to inpsect an incoming request modify or change it, before the request is sent on.
+
+8. Deploying client and server to production:
+* Heroku Node.js Support
+* postinstall script will run after installing server side npm modules. - executed if npm i on local instance of the implementation.
+* We should use heroku-postbuild so that it will only run on heroku.
+* heroku config:set NPM_CONFIG_PRODUCTION=false -> ensures env variable will only be set for dependencies that are installed on client project
+* Tell heroku to install all dependencies on client side project, then build client side project
